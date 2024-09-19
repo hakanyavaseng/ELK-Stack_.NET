@@ -9,8 +9,12 @@ services:
       - "5000:5000"
       - "5001:5001"
     environment:
-      - ASPNETCORE_URLS=http://*:5000;
+      - ASPNETCORE_HTTP_PORTS=5000
+      - ASPNETCORE_HTTPS_PORTS=5001
       - ElasticsearchSettings:Uri=http://elasticsearch:9200
+    volumes:
+      - ./certs:/app/certs:ro
+
   elasticsearch:
     image: elasticsearch:8.15.0
     environment:
@@ -21,6 +25,7 @@ services:
       - es_data:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
+  
   kibana:
     image: kibana:8.14.3
     environment:
