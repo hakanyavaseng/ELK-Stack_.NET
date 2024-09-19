@@ -10,6 +10,7 @@ services:
       - "5001:5001"
     environment:
       - ASPNETCORE_URLS=http://*:5000;
+      - ElasticsearchSettings:Uri=http://elasticsearch:9200
   elasticsearch:
     image: elasticsearch:8.15.0
     environment:
