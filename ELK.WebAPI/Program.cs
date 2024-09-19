@@ -146,6 +146,6 @@ app.MapDelete("/products/{id}",
 
 #endregion
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.Run();
